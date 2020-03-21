@@ -1,5 +1,6 @@
 ion-item {
   --ion-item-border-color: transparent;
+  --background: transparent;
 }
 
 .img-wrapper {
@@ -9,5 +10,10 @@ ion-item {
 
 ion-card{
   margin: 0;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #D2DFF5 0%, #DDE9F9 100%);
+
  box-shadow: -1px -1px 1px 0 rgba(255,255,255,0.50), 1px 1px 1px 0 rgba(166,171,189,0.30);
 }
+
