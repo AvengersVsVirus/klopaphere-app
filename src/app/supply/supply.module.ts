@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {SupplyPage} from './supply.page';
 import {ExploreContainerComponentModule} from '../explore-container/explore-container.module';
 import {SupplyListModule} from './supply-list/supply-list.module';
+import {SupplyButtonGroupModule} from './supply-button-group/supply-button-group.module';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import {SupplyListModule} from './supply-list/supply-list.module';
         FormsModule,
         ExploreContainerComponentModule,
         RouterModule.forChild([{path: '', component: SupplyPage}]),
-        SupplyListModule
+        SupplyListModule,
+        SupplyButtonGroupModule
     ],
     declarations: [SupplyPage]
 })

@@ -1,12 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Bewerte wie viel du siehst …
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Demand</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <supply-list
     [location]="location$ | async"
     [votings]="votings$ | async"
     (vote)="onVote($event)"
   ></supply-list>
+  <supply-button-group></supply-button-group>
 </ion-content>
