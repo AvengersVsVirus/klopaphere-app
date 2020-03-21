@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { SupplyFacade } from "../+state/supply/supply.facade";
 import { Observable } from "rxjs";
-import { Votings, SupplyLocation, Voting } from "../+state";
+import { Votings, SupplyLocation, PostVoting } from "../+state";
 
 @Component({
   selector: "app-supply",
@@ -18,7 +18,7 @@ export class SupplyPage {
     this.facade.loadLocation();
   }
 
-  onVote(voting: Voting) {
+  onVote(voting: PostVoting) {
     this.facade.vote(voting);
   }
 }

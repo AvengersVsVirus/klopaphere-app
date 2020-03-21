@@ -4,7 +4,7 @@ import { StoreModule } from "../store.module";
 import { Store } from "@ngrx/store";
 import { Observable, of } from "rxjs";
 import { SupplyActions } from "./supply.actions";
-import { Votings, SupplyLocation, Voting } from "./supply.model";
+import { Votings, SupplyLocation, Voting, PostVoting } from "./supply.model";
 import { fromSupply } from "./supply.selectors";
 
 @Injectable({ providedIn: StoreModule })
@@ -25,7 +25,11 @@ export class SupplyFacade {
     this.store.dispatch(SupplyActions.loadLocation());
   }
 
-  vote(voting: Voting) {
-    this.store.dispatch(SupplyActions.vote(voting));
+  vote(voting: PostVoting) {
+    this.store.dispatch(
+      SupplyActions.vote({
+        payload: voting
+      })
+    );
   }
 }

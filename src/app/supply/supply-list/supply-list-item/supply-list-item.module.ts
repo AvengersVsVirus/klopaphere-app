@@ -1,19 +1,12 @@
-import {IonicModule} from '@ionic/angular';
-import {NgModule, Input} from '@angular/core';
-import {SupplyListItemComponent} from './supply-list-item.component';
+import { IonicModule } from "@ionic/angular";
+import { NgModule } from "@angular/core";
+import { SupplyListItemComponent } from "./supply-list-item.component";
+import { CommonModule } from "@angular/common";
+import { SupplyButtonModule } from "./supply-button/supply-button.module";
 
 @NgModule({
-  imports: [
-    IonicModule
-  ],
-  exports: [
-    SupplyListItemComponent
-  ],
+  imports: [CommonModule, IonicModule, SupplyButtonModule],
+  exports: [SupplyListItemComponent],
   declarations: [SupplyListItemComponent]
 })
-export class SupplyListItemModule {
-
-  icon = '';
-  text = '';
-}
-
+export class SupplyListItemModule {}

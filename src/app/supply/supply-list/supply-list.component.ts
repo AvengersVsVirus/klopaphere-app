@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { Votings, SupplyLocation, Voting } from "src/app/+state";
+import { Votings, SupplyLocation, Voting, PostVoting } from "src/app/+state";
 
 @Component({
   selector: "supply-list",
@@ -14,13 +14,13 @@ export class SupplyListComponent {
   location: SupplyLocation;
 
   @Output()
-  vote: EventEmitter<Voting> = new EventEmitter<Voting>();
+  vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
 
   isVotingEnabled(index: number) {
     return index === 0;
   }
 
-  onVote(voting: Voting) {
+  onVote(voting: PostVoting) {
     this.vote.emit(voting);
   }
 }

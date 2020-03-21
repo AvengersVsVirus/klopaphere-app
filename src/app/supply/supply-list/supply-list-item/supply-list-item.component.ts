@@ -1,5 +1,13 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { Voting } from "src/app/+state";
+import { Voting, VotingOption, PostVoting } from "src/app/+state";
+import { Availability } from "src/app/shared/api";
+
+const availabiltyToTypeMap = {
+  [Availability.MUCH]: "success",
+  [Availability.NORMAL]: "warning",
+  [Availability.LITTLE]: "warning",
+  [Availability.NOTHING]: "danger"
+};
 
 @Component({
   selector: "supply-list-item",
@@ -14,9 +22,16 @@ export class SupplyListItemComponent {
   enabled: boolean;
 
   @Output()
-  vote: EventEmitter<Voting> = new EventEmitter<Voting>();
+  vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
 
-  onClick() {
-    this.vote.emit(this.voting);
+  getTypeOfOption(option: VotingOption) {
+    return availabiltyToTypeMap[option.value];
+  }
+
+  onVote(option) {
+    this.vote.emit({
+      voting: this.voting,
+      chosenOption: option
+    });
   }
 }

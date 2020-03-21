@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Votings, SupplyLocation, Voting } from "./supply.model";
+import { Votings, SupplyLocation, Voting, PostVoting } from "./supply.model";
 import { ActionPayload, ErrorPayload } from "src/app/shared/store/action.model";
 
 const loadVotings = createAction("[Suply] Load Votings");
@@ -26,7 +26,7 @@ const loadLocationFailed = createAction(
   props<ErrorPayload>()
 );
 
-const vote = createAction("[Suply] Vote", props<ActionPayload<Voting>>());
+const vote = createAction("[Suply] Vote", props<ActionPayload<PostVoting>>());
 
 const voted = createAction("[Suply] Voted", props<ActionPayload<Voting>>());
 

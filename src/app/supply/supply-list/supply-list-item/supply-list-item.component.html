@@ -3,3 +3,11 @@
     {{ voting.name }}
   </ion-card-content>
 </ion-card>
+<ng-container *ngIf="enabled">
+  <supply-button
+    *ngFor="let option of voting.options; let index = index"
+    [type]="getTypeOfOption(option)"
+    (click)="onVote(option.value)"
+    >{{ option.label }}</supply-button
+  >
+</ng-container>
