@@ -29,3 +29,8 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+
+/src/app/shared/api/*
+!/src/app/shared/api/.gitkeep
+
+generated.zip
