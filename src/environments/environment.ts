@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://api.klopaphere.de/votes/vote"
+  apiUrl: "https://api.klopaphere.de/votes"
 };
 
 /*

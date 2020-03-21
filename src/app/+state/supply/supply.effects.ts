@@ -2,7 +2,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
 import { DefaultService, Availability } from "src/app/shared/api";
 import { SupplyActions } from "./supply.actions";
-import { map, mergeMap, withLatestFrom, catchError } from "rxjs/operators";
+import { map, mergeMap, withLatestFrom, catchError, tap } from "rxjs/operators";
 import { SupplyState } from "./supply.reducer";
 import { Store } from "@ngrx/store";
 import { SupplyFacade } from "./supply.facade";
@@ -22,15 +22,15 @@ export class SupplyEffects {
               options: [
                 {
                   label: "leer",
-                  value: Availability.MUCH
+                  value: "MUCH"
                 },
                 {
                   label: "fast nix",
-                  value: Availability.NORMAL
+                  value: "NORMAL"
                 },
                 {
                   label: "voll",
-                  value: Availability.NOTHING
+                  value: "NOTHING"
                 }
               ]
             },
@@ -39,15 +39,100 @@ export class SupplyEffects {
               options: [
                 {
                   label: "viel da",
-                  value: Availability.MUCH
+                  value: "MUCH"
                 },
                 {
                   label: "fast nix",
-                  value: Availability.NORMAL
+                  value: "NORMAL"
                 },
                 {
                   label: "leet",
-                  value: Availability.NOTHING
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Reis",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Desinfektionsmittel",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Milch",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Hefe",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Tomatensauce",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
                 }
               ]
             }
@@ -63,7 +148,7 @@ export class SupplyEffects {
       map(() =>
         SupplyActions.locationLoaded({
           payload: {
-            name: "Edeka",
+            name: "Dummy Store",
             longitude: 53.6159766,
             latitude: 9.9022919
           }
