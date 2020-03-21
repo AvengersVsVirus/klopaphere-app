@@ -33,4 +33,4 @@ npm-debug.log*
 /src/app/shared/api/*
 !/src/app/shared/api/.gitkeep
 
-generate.zip
+generated.zip
