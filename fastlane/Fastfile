@@ -1,0 +1,28 @@
+path = "platforms/ios/MyApp.xcodeproj"
+ios_project_path = "platforms/ios/MyApp.xcodeproj"
+changelog = "Update for KlopapHere"
+team_id = "43QYKNYCRK"
+
+ENV["GYM_PROJECT"] = "platforms/ios/MyApp.xcodeproj"
+ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "nkmn-frvk-qvit-nlvq"
+
+lane :deploy do
+    get_certificates
+    get_provisioning_profile
+    update_project_team(
+      path: ios_project_path,
+      teamid: team_id
+    )
+    build_app(scheme: "MyApp")
+    upload_to_testflight(changelog: changelog)
+end
+
+lane :deploytest do
+    get_certificates
+    get_provisioning_profile
+    update_project_team(
+      path: ios_project_path,
+      teamid: team_id
+    )
+    build_app(scheme: "MyApp")
+end
