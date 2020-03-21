@@ -1,10 +1,12 @@
 import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {DemandListComponent} from './demand-list.component';
+import {DemandListItemModule} from "./demand-list-item/demand-list-item.module";
 
 @NgModule({
     imports: [
-        IonicModule
+        IonicModule,
+        DemandListItemModule
     ],
     exports: [
         DemandListComponent

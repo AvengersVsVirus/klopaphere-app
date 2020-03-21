@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { DemandListItemComponent } from './demand-list-item.component';
 
-describe('DemandListComponent', () => {
+describe('DemandListItemComponent', () => {
   let component: DemandListItemComponent;
   let fixture: ComponentFixture<DemandListItemComponent>;
 

@@ -1,5 +1,5 @@
 import {IonicModule} from '@ionic/angular';
-import {NgModule} from '@angular/core';
+import {NgModule, Input} from '@angular/core';
 import {DemandListItemComponent} from './demand-list-item.component';
 
 @NgModule({
@@ -12,5 +12,7 @@ import {DemandListItemComponent} from './demand-list-item.component';
   declarations: [DemandListItemComponent]
 })
 export class DemandListItemModule {
+  @Input() icon: '';
+  @Input() title: '';
 }
 
