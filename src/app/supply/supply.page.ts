@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { SupplyFacade } from "../+state/supply/supply.facade";
+import { Observable } from "rxjs";
+import { Votings, SupplyLocation, Voting } from "../+state";
 
 @Component({
-  selector: 'app-supply',
-  templateUrl: 'supply.page.html',
-  styleUrls: ['supply.page.scss']
+  selector: "app-supply",
+  templateUrl: "supply.page.html",
+  styleUrls: ["supply.page.scss"]
 })
 export class SupplyPage {
+  votings$: Observable<Votings> = this.facade.votings$;
 
-  constructor() {}
+  location$: Observable<SupplyLocation> = this.facade.location$;
 
+  constructor(private facade: SupplyFacade) {
+    this.facade.loadVotings();
+    this.facade.loadLocation();
+  }
+
+  onVote(voting: Voting) {
+    this.facade.vote(voting);
+  }
 }
