@@ -13,5 +13,7 @@ import {DemandListItemComponent} from './demand-list-item.component';
 })
 export class DemandListItemModule {
 
+  icon = '';
+  text = '';
 }
 
