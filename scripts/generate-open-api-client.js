@@ -1,5 +1,6 @@
 const request = require("request-promise");
-const { readFileSync, writeFileSync } = require("fs");
+const { readFileSync, writeFileSync, createReadStream } = require("fs");
+const unzipper = require("unzipper");
 
 const SWAGGER_GENERATOR_3_API_URL =
   "https://generator3.swagger.io/api/generate";
@@ -48,9 +49,12 @@ function generateOpenApiClient() {
   const configPath = "./config/open-api.json";
   readConfiguration(configPath)
     .then(configuration => request(createRequest(payload(configuration))))
-    .then(response =>
-      writeFileSync("./generated.zip", response, { encoding: "binary" })
-    );
+    .then(response => {
+      writeFileSync("./generated.zip", response, { encoding: "binary" });
+      createReadStream("./generated.zip").pipe(
+        unzipper.Extract({ path: "src/app/shared/api" })
+      );
+    });
 }
 
 generateOpenApiClient();
