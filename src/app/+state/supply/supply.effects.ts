@@ -46,7 +46,7 @@ export class SupplyEffects {
                   value: "NORMAL"
                 },
                 {
-                  label: "leet",
+                  label: "leer",
                   value: "NOTHING"
                 }
               ]
@@ -63,7 +63,7 @@ export class SupplyEffects {
                   value: "NORMAL"
                 },
                 {
-                  label: "leet",
+                  label: "leer",
                   value: "NOTHING"
                 }
               ]
@@ -80,7 +80,7 @@ export class SupplyEffects {
                   value: "NORMAL"
                 },
                 {
-                  label: "leet",
+                  label: "leer",
                   value: "NOTHING"
                 }
               ]
@@ -97,7 +97,7 @@ export class SupplyEffects {
                   value: "NORMAL"
                 },
                 {
-                  label: "leet",
+                  label: "leer",
                   value: "NOTHING"
                 }
               ]
@@ -114,7 +114,7 @@ export class SupplyEffects {
                   value: "NORMAL"
                 },
                 {
-                  label: "leet",
+                  label: "leer",
                   value: "NOTHING"
                 }
               ]
@@ -131,7 +131,7 @@ export class SupplyEffects {
                   value: "NORMAL"
                 },
                 {
-                  label: "leet",
+                  label: "leer",
                   value: "NOTHING"
                 }
               ]
