@@ -14,130 +14,13 @@ export class SupplyEffects {
   loadVotings$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SupplyActions.loadVotings),
-      map(() =>
-        SupplyActions.votingsLoaded({
-          payload: [
-            {
-              name: "Shop",
-              options: [
-                {
-                  label: "leer",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "voll",
-                  value: "NOTHING"
-                }
-              ]
-            },
-            {
-              name: "Klopapier",
-              options: [
-                {
-                  label: "viel da",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "leer",
-                  value: "NOTHING"
-                }
-              ]
-            },
-            {
-              name: "Reis",
-              options: [
-                {
-                  label: "viel da",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "leer",
-                  value: "NOTHING"
-                }
-              ]
-            },
-            {
-              name: "Desinfektionsmittel",
-              options: [
-                {
-                  label: "viel da",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "leer",
-                  value: "NOTHING"
-                }
-              ]
-            },
-            {
-              name: "Milch",
-              options: [
-                {
-                  label: "viel da",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "leer",
-                  value: "NOTHING"
-                }
-              ]
-            },
-            {
-              name: "Hefe",
-              options: [
-                {
-                  label: "viel da",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "leer",
-                  value: "NOTHING"
-                }
-              ]
-            },
-            {
-              name: "Tomatensauce",
-              options: [
-                {
-                  label: "viel da",
-                  value: "MUCH"
-                },
-                {
-                  label: "fast nix",
-                  value: "NORMAL"
-                },
-                {
-                  label: "leer",
-                  value: "NOTHING"
-                }
-              ]
-            }
-          ]
-        })
+      mergeMap(() =>
+        this.service.votesProductGet().pipe(
+          map(votings => SupplyActions.votingsLoaded({ payload: votings })),
+          catchError(error =>
+            of(SupplyActions.loadVotingsFailed({ error: error }))
+          )
+        )
       )
     )
   );
@@ -162,13 +45,14 @@ export class SupplyEffects {
       ofType(SupplyActions.vote),
       withLatestFrom(this.store.select(fromSupply.getLocation)),
       map(([{ payload }, { latitude, longitude }]) => ({
-        availability: payload.chosenOption.value,
+        availability: payload.chosenOption,
         location: `${latitude},${longitude}`,
         product: payload.voting.name
       })),
+      tap(console.log),
       mergeMap(vote =>
-        this.service.votePost(vote).pipe(
-          map(vote => SupplyActions.voted({ payload: null })),
+        this.service.votesVotePost(vote).pipe(
+          map(vote => SupplyActions.voted({ payload: vote.product })),
           catchError(error => of(SupplyActions.voteFailed({ error: error })))
         )
       )

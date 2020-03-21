@@ -5,7 +5,30 @@
     "version": "1.0"
   },
   "paths": {
-    "/vote": {
+    "/votes/product": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/votes/vote": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoteCollection"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "requestBody": {
           "content": {
@@ -33,21 +56,39 @@
   },
   "components": {
     "schemas": {
-      "Availability": {
-        "enum": ["LITTLE", "MUCH", "NORMAL", "NOTHING"],
-        "type": "string"
-      },
       "Vote": {
         "type": "object",
         "properties": {
           "availability": {
             "$ref": "#/components/schemas/Availability"
           },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
           "location": {
             "type": "string"
           },
           "product": {
             "type": "string"
+          }
+        }
+      },
+      "CollectionVote": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Vote"
+        }
+      },
+      "Availability": {
+        "enum": ["LITTLE", "MUCH", "NORMAL", "NOTHING"],
+        "type": "string"
+      },
+      "VoteCollection": {
+        "type": "object",
+        "properties": {
+          "votes": {
+            "$ref": "#/components/schemas/CollectionVote"
           }
         }
       }

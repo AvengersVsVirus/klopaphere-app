@@ -28,7 +28,7 @@ const loadLocationFailed = createAction(
 
 const vote = createAction("[Suply] Vote", props<ActionPayload<PostVoting>>());
 
-const voted = createAction("[Suply] Voted", props<ActionPayload<Voting>>());
+const voted = createAction("[Suply] Voted", props<ActionPayload<string>>());
 
 const voteFailed = createAction("[Suply] Vote Failed", props<ErrorPayload>());
 
