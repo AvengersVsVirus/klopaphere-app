@@ -1,11 +1,16 @@
 ion-card {
   height: 100%;
-  padding: 10px;
+  padding: 2px;
   text-align: center;
+  margin: 5px;
 }
 
 ion-icon {
   margin: 0 auto;
   display: block;
-  font-size: 28px;
+  font-size: 18px;
+}
+
+ion-card-content{
+  padding: 10px 0;
 }

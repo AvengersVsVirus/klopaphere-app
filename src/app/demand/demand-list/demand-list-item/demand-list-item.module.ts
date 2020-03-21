@@ -12,7 +12,6 @@ import {DemandListItemComponent} from './demand-list-item.component';
   declarations: [DemandListItemComponent]
 })
 export class DemandListItemModule {
-  @Input() icon: '';
-  @Input() title: '';
+
 }
 
