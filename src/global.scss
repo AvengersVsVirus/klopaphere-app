@@ -24,3 +24,16 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.tab-selected{
+  .tab-icon{
+    filter: invert(45%) sepia(42%) saturate(2323%) hue-rotate(183deg) brightness(93%) contrast(83%);
+  }
+}
+
+.tab-icon{
+  font-size: 24px;
+  height: 24px;
+  filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);
+}

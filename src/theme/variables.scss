@@ -7,14 +7,14 @@ ion-tab-bar{
   --ion-background-color: #ECF3FC;
   --ion-background-color-rgb: 236,243,252;
 }
+
 :root {
-//
+
   --ion-background-color: #e5eefd;
   --ion-background-color-rgb: 229,238,253;
 
   --ion-text-color: #6D7587;
   --ion-text-color-rgb: 109,117,135;
-
   /** primary **/
   --ion-color-primary: #258cda;
   --ion-color-primary-rgb: 37,140,218;
@@ -165,10 +165,15 @@ ion-tab-bar{
    */
 
   .ios body {
-    --ion-background-color: #000000;
+
+    ion-tab-bar{
+      --ion-background-color: #32343a;
+    }
+
+    --ion-background-color: #25272C;
     --ion-background-color-rgb: 0,0,0;
 
-    --ion-text-color: #ffffff;
+    --ion-text-color: #c7c7c7;
     --ion-text-color-rgb: 255,255,255;
 
     --ion-color-step-50: #0d0d0d;
