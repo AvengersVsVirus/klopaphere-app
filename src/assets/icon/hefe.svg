@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="29px" viewBox="0 0 26 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>cube</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="76.7881112%" y1="31.1553269%" x2="24.2736039%" y2="72.2805751%" id="linearGradient-1">
+            <stop stop-color="#37DBE0" offset="0%"></stop>
+            <stop stop-color="#1758F1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="_Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Hefe" transform="translate(-4.000000, 0.000000)" fill="url(#linearGradient-1)">
+            <g id="cube" transform="translate(4.000000, 0.000000)">
+                <path d="M12.5574036,0 L0,7.25 L0,21.75 L12.5574036,29 L25.1148071,21.75 L25.1148071,7.25 L12.5574036,0 Z M22.5553589,7.74007417 L12.5574036,13.5125503 L2.55944824,7.74007417 L12.5574036,1.96781924 L22.5553589,7.74007417 Z M1.70408633,9.2142792 L11.7053604,14.9883042 L11.7053604,26.5403366 L1.70408633,20.7660904 L1.70408633,9.2142792 Z M13.4094467,26.5403366 L13.4094467,14.9883042 L23.4107208,9.2142792 L23.4107208,20.7660904 L13.4094467,26.5403366 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
