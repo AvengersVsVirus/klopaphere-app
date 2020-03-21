@@ -28,18 +28,12 @@
 
 .tab-selected{
   .tab-icon{
-    font-size: 24px;
-    height: 24px;
-    svg {
-      fill: red;
-    }
+    filter: invert(45%) sepia(42%) saturate(2323%) hue-rotate(183deg) brightness(93%) contrast(83%);
   }
 }
 
 .tab-icon{
   font-size: 24px;
   height: 24px;
-  svg {
-    fill: red;
-  }
+  filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);
 }
