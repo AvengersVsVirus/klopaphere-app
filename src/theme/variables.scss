@@ -2,12 +2,18 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
+ion-tab-bar{
+  --ion-background-color: #ECF3FC;
+  --ion-background-color-rgb: 236,243,252;
+}
 :root {
 //
   --ion-background-color: #e5eefd;
   --ion-background-color-rgb: 229,238,253;
 
-
+  --ion-text-color: #6D7587;
+  --ion-text-color-rgb: 109,117,135;
 
   /** primary **/
   --ion-color-primary: #258cda;
