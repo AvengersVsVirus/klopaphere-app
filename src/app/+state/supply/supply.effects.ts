@@ -2,7 +2,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
 import { DefaultService, Availability } from "src/app/shared/api";
 import { SupplyActions } from "./supply.actions";
-import { map, mergeMap, withLatestFrom, catchError } from "rxjs/operators";
+import { map, mergeMap, withLatestFrom, catchError, tap } from "rxjs/operators";
 import { SupplyState } from "./supply.reducer";
 import { Store } from "@ngrx/store";
 import { SupplyFacade } from "./supply.facade";
@@ -63,7 +63,7 @@ export class SupplyEffects {
       map(() =>
         SupplyActions.locationLoaded({
           payload: {
-            name: "Edeka",
+            name: "Dummy Store",
             longitude: 53.6159766,
             latitude: 9.9022919
           }
