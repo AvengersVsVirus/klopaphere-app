@@ -2,8 +2,11 @@
 
 
 <ng-container *ngIf="enabled">
+  <ion-card>
   <ion-item >
-    <ion-icon name="trash" slot="start"></ion-icon>
+    <figure class="img-wrapper">
+      <img src="/assets/icon/{{ voting.name | lowercase }}.svg">
+    </figure>
     <ion-label> {{ voting.name }}</ion-label>
 
   </ion-item>
@@ -14,11 +17,14 @@
             (click)="onVote(option.value)"
     >{{ option.label }}</supply-button>
   </ion-item>
+  </ion-card>
 
 </ng-container>
 <ng-container *ngIf="!enabled">
   <ion-item >
-    <ion-icon name="trash" slot="start"></ion-icon>
+    <figure class="img-wrapper">
+      <img src="/assets/icon/{{ voting.name | lowercase }}.svg">
+    </figure>
     <ion-label> {{ voting.name }}</ion-label>
   </ion-item>
 </ng-container>
