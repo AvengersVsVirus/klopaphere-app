@@ -1,16 +1,9 @@
-<ion-grid>
-  <ion-row>
-    <ion-col size-xs="12" class="ion-text-center">
-      <h3>Ich brauche dringend...</h3>
-    </ion-col>
-  </ion-row>
-  <ion-row *ngFor="let voting of votings; let index = index">
-    <ion-col size-xs="12">
-      <supply-list-item
+<ion-list>
+
+      <supply-list-item *ngFor="let voting of votings; let index = index"
         [enabled]="isVotingEnabled(index)"
         [voting]="voting"
         (vote)="onVote($event)"
       ></supply-list-item>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+
+  </ion-list>
