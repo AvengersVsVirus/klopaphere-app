@@ -9,6 +9,5 @@ export class SupplyButtonComponent {
     constructor() {
     }
 
-    @Input() label: string;
-    @Input() icon: string;
+    @Input() type: string;
 }
