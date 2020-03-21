@@ -22,15 +22,15 @@ export class SupplyEffects {
               options: [
                 {
                   label: "leer",
-                  value: Availability.MUCH
+                  value: "MUCH"
                 },
                 {
                   label: "fast nix",
-                  value: Availability.NORMAL
+                  value: "NORMAL"
                 },
                 {
                   label: "voll",
-                  value: Availability.NOTHING
+                  value: "NOTHING"
                 }
               ]
             },
@@ -39,15 +39,100 @@ export class SupplyEffects {
               options: [
                 {
                   label: "viel da",
-                  value: Availability.MUCH
+                  value: "MUCH"
                 },
                 {
                   label: "fast nix",
-                  value: Availability.NORMAL
+                  value: "NORMAL"
                 },
                 {
                   label: "leet",
-                  value: Availability.NOTHING
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Reis",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Desinfektionsmittel",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Milch",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Hefe",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
+                }
+              ]
+            },
+            {
+              name: "Tomatensauce",
+              options: [
+                {
+                  label: "viel da",
+                  value: "MUCH"
+                },
+                {
+                  label: "fast nix",
+                  value: "NORMAL"
+                },
+                {
+                  label: "leet",
+                  value: "NOTHING"
                 }
               ]
             }
