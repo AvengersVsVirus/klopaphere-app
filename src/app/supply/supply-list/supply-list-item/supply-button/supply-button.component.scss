@@ -1,15 +1,28 @@
-/*
 
-ion-button[ng-reflect-color="success"]{
-  --ion-color-success: #FE932A;
-  --ion-color-base: linear-gradient(-42deg, #000000 0%, #FFFFFF 100%) !important;
-}
 ion-button[ng-reflect-color="warning"]{
+  --ion-color-success: #FE932A;
+  --ion-color-base: linear-gradient(90deg, rgba(254,147,42,1) 0%, rgba(254,147,42,0.8) 100%) !important;
+}
+ion-button[ng-reflect-color="success"]{
   --ion-color-success: #32A05F;
-
-  --ion-color-base: linear-gradient(-42deg, #000000 0%, #FFFFFF 100%) !important;
+  --ion-color-base: linear-gradient(90deg, rgba(50,160,95,1) 0%, rgba(50,160,95,0.8) 100%) !important;
 }
 ion-button[ng-reflect-color="danger"]{
+
   --ion-color-success: #DC372B;
-  --ion-color-base: linear-gradient(90deg, rgba(220,55,43,0.804359243697479) 0%, rgba(220,55,43,1) 100%) !important;
-} */
+  --ion-color-base: linear-gradient(90deg, rgba(220,55,43,0.8) 0%, rgba(220,55,43,1) 100%) !important;
+}
+
+ion-button{
+
+  //--box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 12px;
+  --box-shadow: -3px -3px 5px 0 #FAFBFF, 3px 3px 5px 0 #A6ABBD;
+  --ion-color-warning-contrast: #fff;
+  --ion-color-contrast: #fff;
+  --color: #fff !important; height: 35px;
+  //
+}
+:host{
+  width: 33%;
+}
