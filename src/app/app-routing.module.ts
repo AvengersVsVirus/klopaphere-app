@@ -5,7 +5,7 @@ import { AuthGuardService } from "./shared/sso/auth-guard.service";
 const routes: Routes = [
   {
     path: "",
-   /* canActivate: [],*/
+    canActivate: [AuthGuardService],
     loadChildren: () => import("./tabs/tabs.module").then(m => m.TabsPageModule)
   },
   {

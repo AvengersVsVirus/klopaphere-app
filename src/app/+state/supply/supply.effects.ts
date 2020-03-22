@@ -1,6 +1,6 @@
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
-import { DefaultService, Availability } from "src/app/shared/api";
+import { DefaultService } from "src/app/shared/api";
 import { SupplyActions } from "./supply.actions";
 import { map, mergeMap, withLatestFrom, catchError, tap } from "rxjs/operators";
 import { SupplyState } from "./supply.reducer";

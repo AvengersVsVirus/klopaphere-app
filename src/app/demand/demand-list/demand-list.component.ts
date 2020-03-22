@@ -1,20 +1,19 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PostVoting, SupplyLocation, Votings} from '../../+state';
+import { Component, Input, Output } from "@angular/core";
+import { Products } from "src/app/+state/demand/demand.model";
 
 @Component({
-    selector: 'demand-list',
-    templateUrl: './demand-list.component.html',
-    styleUrls: ['./demand-list.component.scss'],
+  selector: "demand-list",
+  templateUrl: "./demand-list.component.html",
+  styleUrls: ["./demand-list.component.scss"]
 })
 export class DemandListComponent {
-    @Input()
-    votings: Votings;
+  @Input()
+  products: Products;
 
-    @Output()
-    currentDemandFilter: boolean;
+  @Output()
+  currentDemandFilter: boolean;
 
-    demandFilter() {
-        this.currentDemandFilter = true;
-    }
-
+  demandFilter() {
+    this.currentDemandFilter = true;
+  }
 }
