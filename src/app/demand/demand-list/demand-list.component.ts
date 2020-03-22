@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PostVoting, SupplyLocation, Votings} from "../../+state";
+import {PostVoting, SupplyLocation, Votings} from '../../+state';
 
 @Component({
     selector: 'demand-list',
@@ -10,17 +10,11 @@ export class DemandListComponent {
     @Input()
     votings: Votings;
 
-    @Input()
-    location: SupplyLocation;
-
     @Output()
-    vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
+    currentDemandFilter: boolean;
 
-    isVotingEnabled(index: number) {
-        return index === 0;
+    demandFilter() {
+        this.currentDemandFilter = true;
     }
 
-    onVote(voting: PostVoting) {
-        this.vote.emit(voting);
-    }
 }

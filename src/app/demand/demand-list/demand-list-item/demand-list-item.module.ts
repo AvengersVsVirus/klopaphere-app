@@ -14,8 +14,5 @@ import {CommonModule} from "@angular/common";
   declarations: [DemandListItemComponent]
 })
 export class DemandListItemModule {
-
-  icon = '';
-  text = '';
 }
 

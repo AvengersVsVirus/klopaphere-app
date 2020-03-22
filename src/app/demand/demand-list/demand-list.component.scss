@@ -1,0 +1,16 @@
+.horizontal-demand-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+  overflow: auto  ;
+  li{
+    text-decoration: none;list-style: none;
+
+  }
+}
