@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { SupplyFacade } from "../+state/supply/supply.facade";
 import { Observable } from "rxjs";
 import { Votings, SupplyLocation, PostVoting } from "../+state";
@@ -8,12 +8,13 @@ import { Votings, SupplyLocation, PostVoting } from "../+state";
   templateUrl: "supply.page.html",
   styleUrls: ["supply.page.scss"]
 })
-export class SupplyPage {
+export class SupplyPage implements OnInit {
   votings$: Observable<Votings> = this.facade.votings$;
 
   location$: Observable<SupplyLocation> = this.facade.location$;
 
-  constructor(private facade: SupplyFacade) {
+  constructor(private facade: SupplyFacade) {}
+  ngOnInit(): void {
     this.facade.loadVotings();
     this.facade.loadLocation();
   }
