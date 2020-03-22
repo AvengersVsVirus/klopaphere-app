@@ -1,4 +1,4 @@
-<ion-card (click)="onToggle()">
+<ion-card [ngClass]="{ active: isActive }" (click)="onToggle()">
   <ion-card-content>
     <figure class="img-wrapper">
       <img src="/assets/icon/{{ product.name | lowercase }}.svg" />
