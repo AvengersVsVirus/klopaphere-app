@@ -5,7 +5,91 @@
     "version": "1.0"
   },
   "paths": {
-    "/votes/product": {
+    "/demand": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Demand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Demand"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/heatmap/{location}/{product}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "location",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "product",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Heatmap"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/location": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceLocation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceLocation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product": {
       "get": {
         "responses": {
           "200": {
@@ -14,7 +98,7 @@
         }
       }
     },
-    "/votes/vote": {
+    "/vote": {
       "get": {
         "responses": {
           "200": {
@@ -56,6 +140,28 @@
   },
   "components": {
     "schemas": {
+      "Demand": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          }
+        }
+      },
+      "DeviceLocation": {
+        "type": "object",
+        "properties": {
+          "deviceToken": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        }
+      },
       "Vote": {
         "type": "object",
         "properties": {
@@ -89,6 +195,34 @@
         "properties": {
           "votes": {
             "$ref": "#/components/schemas/CollectionVote"
+          }
+        }
+      },
+      "HeatmapEntry": {
+        "type": "object",
+        "properties": {
+          "availability": {
+            "$ref": "#/components/schemas/Availability"
+          },
+          "location": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          }
+        }
+      },
+      "CollectionHeatmapEntry": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/HeatmapEntry"
+        }
+      },
+      "Heatmap": {
+        "type": "object",
+        "properties": {
+          "entries": {
+            "$ref": "#/components/schemas/CollectionHeatmapEntry"
           }
         }
       }

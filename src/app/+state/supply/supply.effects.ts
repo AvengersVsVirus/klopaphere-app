@@ -14,7 +14,7 @@ export class SupplyEffects {
     this.actions$.pipe(
       ofType(SupplyActions.loadVotings),
       mergeMap(() =>
-        this.service.votesProductGet().pipe(
+        this.service.productGet().pipe(
           map(votings => SupplyActions.votingsLoaded({ payload: votings })),
           catchError(error =>
             of(SupplyActions.loadVotingsFailed({ error: error }))
@@ -50,7 +50,7 @@ export class SupplyEffects {
       })),
       tap(console.log),
       mergeMap(vote =>
-        this.service.votesVotePost(vote).pipe(
+        this.service.votePost(vote).pipe(
           map(vote => SupplyActions.voted({ payload: vote.product })),
           catchError(error => of(SupplyActions.voteFailed({ error: error })))
         )
