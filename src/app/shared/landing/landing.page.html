@@ -1,17 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Logged Out</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-  <ion-button (click)="signIn()">Sign In</ion-button>
-  <ion-card *ngIf="action">
-    <ion-card-header>
-      Action Data
-    </ion-card-header>
-    <ion-card-content>
-      {{action | json}}
-    </ion-card-content>
-  </ion-card>
+
+  <figure class="title-wrapper" style="padding-top: 50%;" >
+
+    <img src="/assets/icon/favicon.png" >
+
+    <ion-button  size="medium" color="light" expand="block" (click)="signIn()">Sign In</ion-button>
+  </figure>
 </ion-content>

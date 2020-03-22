@@ -4,23 +4,31 @@
             <figure class="title-wrapper">
 
                 <img src="/assets/icon/need.svg" style="height:34px; filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);">
-                <figcaption> Ich brauche dringend …</figcaption>
+                <figcaption> Ich brauche …</figcaption>
             </figure>
         </ion-col>
-        <ion-col size-xs="4" *ngFor="let voting of votings; let index = index">
-            <demand-list-item
-                    [enabled]="isVotingEnabled(index)"
-                    [voting]="voting"
-                    (vote)="onVote($event)"
-            ></demand-list-item>
-        </ion-col>
+        <ng-container *ngIf="currentDemandFilter">
+            <demand-map></demand-map>
+        </ng-container>
+        <ng-container *ngIf="!currentDemandFilter">
+            <ion-col size-xs="4" *ngFor="let voting of votings; let index = index">
+                <demand-list-item
+                        [enabled]="isVotingEnabled(index)"
+                        [voting]="voting"
+                        (vote)="onVote($event)"
+                ></demand-list-item>
+            </ion-col>
+        </ng-container>
     </ion-row>
 </ion-grid>
 
-<ion-grid>
-    <ion-row>
-        <ion-col>
-            <demand-button></demand-button>
-        </ion-col>
-    </ion-row>
-</ion-grid>
+<ng-container *ngIf="!currentDemandFilter">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <demand-button></demand-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ng-container>
+
