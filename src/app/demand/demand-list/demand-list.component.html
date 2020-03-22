@@ -13,20 +13,34 @@
         <ng-container *ngIf="!currentDemandFilter">
             <ion-col size-xs="4" *ngFor="let voting of votings; let index = index">
                 <demand-list-item
-                        [enabled]="isVotingEnabled(index)"
                         [voting]="voting"
-                        (vote)="onVote($event)"
                 ></demand-list-item>
             </ion-col>
         </ng-container>
+
     </ion-row>
 </ion-grid>
+
+
+<ng-container *ngIf="currentDemandFilter">
+
+    <ul class="horizontal-demand-list">
+        <li *ngFor="let voting of votings; let index = index">
+            <demand-list-item
+                    [voting]="voting"
+            ></demand-list-item>
+        </li>
+    </ul>
+
+</ng-container>
+
 
 <ng-container *ngIf="!currentDemandFilter">
     <ion-grid>
         <ion-row>
             <ion-col>
-                <demand-button></demand-button>
+                <demand-button (click)="demandFilter($event)"
+                ></demand-button>
             </ion-col>
         </ion-row>
     </ion-grid>

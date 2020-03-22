@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PostVoting, Voting, VotingOption} from "../../../+state";
+import {Voting} from '../../../+state';
 
 @Component({
     selector: 'demand-list-item',
@@ -11,10 +11,15 @@ export class DemandListItemComponent {
     @Input()
     voting: Voting;
 
-    @Input()
-    enabled: boolean;
 
     @Output()
-    vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
+    currentDemandFilter: [''];
 
+    onCurrentDemandFilter(e) {
+        e.stopPropagation();
+        e.target.classList.toggle('active');
+
+        /*const tagName: any = e.target.tagName;
+        this.currentDemandFilter.push(tagName);*/
+    }
 }
