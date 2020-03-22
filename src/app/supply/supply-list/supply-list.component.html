@@ -3,23 +3,21 @@
         <ion-col>
             <figure class="title-wrapper">
 
-                <img src="/assets/icon/find.svg" style="height:34px; filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);">
+                <img src="/assets/icon/find.svg"
+                     style="height:34px; filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);">
                 <figcaption> Bewerte wie viel du siehst …</figcaption>
             </figure>
-
-            <h6>{{ location.name }}</h6>
-
-            <supply-list-item *ngFor="let voting of votings; let index = index"
-                              [enabled]="isVotingEnabled(index)"
-                              [voting]="voting"
-                              (vote)="onVote($event)"
-            ></supply-list-item>
-
-
-            <ng-container *ngIf="!votings?.length > 0">
-                <div>No Votings GIF? </div>
+            <ng-container *ngIf="votings?.length > 0">
+                <h6>{{ location.name }}</h6>
+                <supply-list-item *ngFor="let voting of votings; let index = index"
+                                  [enabled]="isVotingEnabled(index)"
+                                  [voting]="voting"
+                                  (vote)="onVote($event)"
+                ></supply-list-item>
             </ng-container>
-
+            <ng-container *ngIf="!votings?.length > 0">
+                <img src="assets/danke.png" style="height: 450px; margin: 0 auto;  display: block;">
+            </ng-container>
         </ion-col>
     </ion-row>
 </ion-grid>

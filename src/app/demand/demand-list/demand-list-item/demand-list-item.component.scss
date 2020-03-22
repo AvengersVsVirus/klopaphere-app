@@ -1,6 +1,7 @@
 ion-card {
   min-height: 100px;
   min-width: 100px;
+  max-width: 100px;
   width: 100%;
   padding: 4px;
   text-align: center;
@@ -16,7 +17,6 @@ ion-card.active{
   background: #F1F3FB;
   box-shadow: inset 5px 5px 5px #BFC9D9, inset -5px -5px 5px rgb(255, 255, 255, 0.6);
 }
-
 
 ion-card-content {
   padding: 0;
