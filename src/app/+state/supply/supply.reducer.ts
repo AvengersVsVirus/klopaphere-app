@@ -1,7 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { Votings, SupplyLocation } from "./supply.model";
 import { SupplyActions } from "./supply.actions";
-import { State } from "../store.module";
 
 export interface SupplyState {
   location: SupplyLocation;
@@ -27,7 +26,34 @@ const reducer = createReducer(
     return {
       ...state,
       votings: [
-        ...state.votings.filter(voting => voting.name !== removeVotingName)
+        ...state.votings
+          .filter(voting => voting.name !== removeVotingName)
+          .map((voting, index) =>
+            index === 0
+              ? {
+                  ...voting,
+                  isSelected: true
+                }
+              : voting
+          )
+      ]
+    };
+  }),
+  on(SupplyActions.selectVote, (state, action) => {
+    return {
+      ...state,
+      votings: [
+        ...state.votings.map(voting =>
+          action.payload.name === voting.name
+            ? {
+                ...voting,
+                isSelected: true
+              }
+            : {
+                ...voting,
+                isSelected: false
+              }
+        )
       ]
     };
   })

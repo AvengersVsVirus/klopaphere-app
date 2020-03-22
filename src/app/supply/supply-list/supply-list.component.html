@@ -6,15 +6,16 @@
           src="/assets/icon/find.svg"
           style="height:34px; filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);"
         />
-        <figcaption>Bewerte wie viel du siehst …</figcaption>
+        <figcaption>
+          Bewerte wie viel du siehst im {{ location.name }}
+        </figcaption>
       </figure>
       <ng-container *ngIf="isVotingAvailable; else done">
-        <h6>{{ location.name }}</h6>
         <supply-list-item
           *ngFor="let voting of votings; let index = index"
-          [enabled]="isVotingEnabled(index)"
           [voting]="voting"
           (vote)="onVote($event)"
+          (select)="onSelect($event)"
         ></supply-list-item>
       </ng-container>
       <ng-template #done>

@@ -15,6 +15,16 @@ export class SupplyEffects {
       ofType(SupplyActions.loadVotings),
       mergeMap(() =>
         this.service.productGet().pipe(
+          map(votings =>
+            votings.map((voting, index) =>
+              index == 0
+                ? {
+                    ...voting,
+                    isSelected: true
+                  }
+                : voting
+            )
+          ),
           map(votings => SupplyActions.votingsLoaded({ payload: votings })),
           catchError(error =>
             of(SupplyActions.loadVotingsFailed({ error: error }))

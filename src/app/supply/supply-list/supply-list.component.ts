@@ -16,6 +16,9 @@ export class SupplyListComponent {
   @Output()
   vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
 
+  @Output()
+  select: EventEmitter<Voting> = new EventEmitter<Voting>();
+
   get isVotingAvailable() {
     return this.votings.length > 0;
   }
@@ -26,5 +29,9 @@ export class SupplyListComponent {
 
   onVote(voting: PostVoting) {
     this.vote.emit(voting);
+  }
+
+  onSelect(voting: Voting) {
+    this.select.emit(voting);
   }
 }

@@ -32,4 +32,8 @@ export class SupplyFacade {
       })
     );
   }
+
+  selectVote(voting: Voting) {
+    this.store.dispatch(SupplyActions.selectVote({ payload: voting }));
+  }
 }

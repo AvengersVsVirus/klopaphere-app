@@ -18,11 +18,11 @@ export class SupplyListItemComponent {
   @Input()
   voting: Voting;
 
-  @Input()
-  enabled: boolean;
-
   @Output()
   vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
+
+  @Output()
+  select: EventEmitter<Voting> = new EventEmitter<Voting>();
 
   getTypeOfOption(option: VotingOption) {
     return availabiltyToTypeMap[option.value];
@@ -33,5 +33,9 @@ export class SupplyListItemComponent {
       voting: this.voting,
       chosenOption: option
     });
+  }
+
+  onSelect() {
+    this.select.emit(this.voting);
   }
 }

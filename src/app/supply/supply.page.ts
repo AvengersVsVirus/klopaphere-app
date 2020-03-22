@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SupplyFacade } from "../+state/supply/supply.facade";
 import { Observable } from "rxjs";
-import { Votings, SupplyLocation, PostVoting } from "../+state";
+import { Votings, SupplyLocation, PostVoting, Voting } from "../+state";
 
 @Component({
   selector: "app-supply",
@@ -21,5 +21,9 @@ export class SupplyPage implements OnInit {
 
   onVote(voting: PostVoting) {
     this.facade.vote(voting);
+  }
+
+  onSelect(voting: Voting) {
+    this.facade.selectVote(voting);
   }
 }

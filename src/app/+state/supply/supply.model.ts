@@ -9,6 +9,7 @@ export type VotingOptions = VotingOption[];
 
 export interface Voting {
   name: string;
+  isSelected: boolean;
   options: VotingOptions;
 }
 

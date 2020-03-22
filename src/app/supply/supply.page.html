@@ -1,8 +1,8 @@
-
 <ion-content [fullscreen]="true">
   <supply-list
     [location]="location$ | async"
     [votings]="votings$ | async"
     (vote)="onVote($event)"
+    (select)="onSelect($event)"
   ></supply-list>
 </ion-content>
