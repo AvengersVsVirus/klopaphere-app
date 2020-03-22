@@ -5,7 +5,6 @@ import { SupplyActions } from "./supply.actions";
 import { map, mergeMap, withLatestFrom, catchError, tap } from "rxjs/operators";
 import { SupplyState } from "./supply.reducer";
 import { Store } from "@ngrx/store";
-import { SupplyFacade } from "./supply.facade";
 import { of } from "rxjs";
 import { fromSupply } from "./supply.selectors";
 
