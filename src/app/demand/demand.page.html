@@ -1,9 +1,8 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Demand</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <h3>Ich brauche dringend..</h3>
-  <demand-list> </demand-list>
+
+    <demand-list
+            [location]="location$ | async"
+            [votings]="votings$ | async"
+            (vote)="onVote($event)"
+    ></demand-list>
 </ion-content>

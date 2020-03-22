@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {PostVoting, Voting, VotingOption} from "../../../+state";
 
 @Component({
     selector: 'demand-list-item',
@@ -7,6 +8,13 @@ import {Component} from '@angular/core';
 })
 export class DemandListItemComponent {
 
-    constructor() {
-    }
+    @Input()
+    voting: Voting;
+
+    @Input()
+    enabled: boolean;
+
+    @Output()
+    vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
+
 }

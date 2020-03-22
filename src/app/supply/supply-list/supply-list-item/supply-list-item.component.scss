@@ -12,8 +12,9 @@ ion-card{
   margin: 0;
   margin-bottom: 20px;
   border-radius: 12px;
-  background: linear-gradient(180deg, #D2DFF5 0%, #DDE9F9 100%);
-  box-shadow: -1px -1px 1px 0 rgba(255,255,255,0.50), 1px 1px 1px 0 rgba(166,171,189,0.30);
+  padding-bottom: 5px;
+  background: #D3E0F5;
+  box-shadow: inset 5px 5px 5px #BCC7DB, inset -5px -5px 5px rgb(255,255,255, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
