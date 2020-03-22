@@ -22,7 +22,15 @@ const reducer = createReducer(
   on(SupplyActions.locationLoaded, (state, action) => ({
     ...state,
     location: action.payload
-  }))
+  })),
+  on(SupplyActions.voted, (state, { payload: removeVotingName }) => {
+    return {
+      ...state,
+      votings: [
+        ...state.votings.filter(voting => voting.name !== removeVotingName)
+      ]
+    };
+  })
 );
 
 export function supplyReducer(state: SupplyState, action: Action) {

@@ -5,7 +5,114 @@
     "version": "1.0"
   },
   "paths": {
+    "/demand": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Demand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Demand"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/heatmap/{location}/{product}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "location",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "product",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Heatmap"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/location": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceLocation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceLocation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/vote": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoteCollection"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "requestBody": {
           "content": {
@@ -33,11 +140,65 @@
   },
   "components": {
     "schemas": {
+      "Demand": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          }
+        }
+      },
+      "DeviceLocation": {
+        "type": "object",
+        "properties": {
+          "deviceToken": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        }
+      },
+      "Vote": {
+        "type": "object",
+        "properties": {
+          "availability": {
+            "$ref": "#/components/schemas/Availability"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "location": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          }
+        }
+      },
+      "CollectionVote": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Vote"
+        }
+      },
       "Availability": {
         "enum": ["LITTLE", "MUCH", "NORMAL", "NOTHING"],
         "type": "string"
       },
-      "Vote": {
+      "VoteCollection": {
+        "type": "object",
+        "properties": {
+          "votes": {
+            "$ref": "#/components/schemas/CollectionVote"
+          }
+        }
+      },
+      "HeatmapEntry": {
         "type": "object",
         "properties": {
           "availability": {
@@ -48,6 +209,20 @@
           },
           "product": {
             "type": "string"
+          }
+        }
+      },
+      "CollectionHeatmapEntry": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/HeatmapEntry"
+        }
+      },
+      "Heatmap": {
+        "type": "object",
+        "properties": {
+          "entries": {
+            "$ref": "#/components/schemas/CollectionHeatmapEntry"
           }
         }
       }
