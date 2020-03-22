@@ -16,6 +16,10 @@ export class SupplyListComponent {
   @Output()
   vote: EventEmitter<PostVoting> = new EventEmitter<PostVoting>();
 
+  get isVotingAvailable() {
+    return this.votings.length > 0;
+  }
+
   isVotingEnabled(index: number) {
     return index === 0;
   }

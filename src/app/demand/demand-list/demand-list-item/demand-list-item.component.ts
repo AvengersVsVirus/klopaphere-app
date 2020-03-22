@@ -1,4 +1,4 @@
-import { Component, Input, Output } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Product } from "src/app/+state/demand/demand.model";
 
 @Component({
@@ -10,9 +10,10 @@ export class DemandListItemComponent {
   @Input()
   product: Product;
 
-  isActive: boolean;
+  @Output()
+  select: EventEmitter<Product> = new EventEmitter<Product>();
 
   onToggle() {
-    this.isActive = !this.isActive;
+    this.select.emit(this.product);
   }
 }

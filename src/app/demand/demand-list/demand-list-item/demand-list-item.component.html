@@ -1,4 +1,4 @@
-<ion-card [ngClass]="{ active: isActive }" (click)="onToggle()">
+<ion-card [ngClass]="{ active: product.isSelected }" (click)="onToggle()">
   <ion-card-content>
     <figure class="img-wrapper">
       <img src="/assets/icon/{{ product.name | lowercase }}.svg" />
@@ -6,4 +6,3 @@
     </figure>
   </ion-card-content>
 </ion-card>
-{{ currentDemandFilter }}

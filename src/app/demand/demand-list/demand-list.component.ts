@@ -1,5 +1,5 @@
-import { Component, Input, Output } from "@angular/core";
-import { Products } from "src/app/+state/demand/demand.model";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Products, Product } from "src/app/+state/demand/demand.model";
 
 @Component({
   selector: "demand-list",
@@ -11,9 +11,15 @@ export class DemandListComponent {
   products: Products;
 
   @Output()
+  select: EventEmitter<Product> = new EventEmitter<Product>();
+
   currentDemandFilter: boolean;
 
   demandFilter() {
     this.currentDemandFilter = true;
+  }
+
+  onSelect(product: Product) {
+    this.select.emit(product);
   }
 }

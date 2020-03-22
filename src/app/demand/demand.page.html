@@ -1,3 +1,6 @@
 <ion-content [fullscreen]="true">
-  <demand-list [products]="products$ | async"></demand-list>
+  <demand-list
+    [products]="products$ | async"
+    (select)="onSelect($event)"
+  ></demand-list>
 </ion-content>

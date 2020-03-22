@@ -14,7 +14,10 @@
     </ng-container>
     <ng-container *ngIf="!currentDemandFilter">
       <ion-col size-xs="4" *ngFor="let product of products; let index = index">
-        <demand-list-item [product]="product"></demand-list-item>
+        <demand-list-item
+          [product]="product"
+          (select)="onSelect($event)"
+        ></demand-list-item>
       </ion-col>
     </ng-container>
   </ion-row>
@@ -23,7 +26,10 @@
 <ng-container *ngIf="currentDemandFilter">
   <ul class="horizontal-demand-list">
     <li *ngFor="let product of products; let index = index">
-      <demand-list-item [product]="product"></demand-list-item>
+      <demand-list-item
+        [product]="product"
+        (select)="onSelect($event)"
+      ></demand-list-item>
     </li>
   </ul>
 </ng-container>

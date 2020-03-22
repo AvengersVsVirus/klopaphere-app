@@ -1,33 +1,26 @@
-<!--<ion-item href="#" class="ion-activated">-->
-
-
-<ng-container *ngIf="enabled">
+<ng-container *ngIf="enabled; else isDisabled">
   <ion-card>
-  <ion-item >
-    <figure class="img-wrapper">
-      <img src="/assets/icon/{{ voting.name | lowercase }}.svg">
-    </figure>
-    <ion-label> {{ voting.name }}</ion-label>
-
-  </ion-item>
-  <ion-item>
-    <supply-button
-            *ngFor="let option of voting.options; let index = index"
-            [type]="getTypeOfOption(option)"
-            (click)="onVote(option.value)"
-    >{{ option.label }}</supply-button>
-  </ion-item>
+    <ion-item>
+      <figure class="img-wrapper">
+        <img src="/assets/icon/{{ voting.name | lowercase }}.svg" />
+      </figure>
+      <ion-label> {{ voting.name }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <supply-button
+        *ngFor="let option of voting.options; let index = index"
+        [type]="getTypeOfOption(option)"
+        (click)="onVote(option.value)"
+        >{{ option.label }}</supply-button
+      >
+    </ion-item>
   </ion-card>
-
 </ng-container>
-
-
-<ng-container *ngIf="!enabled">
-  <ion-item >
+<ng-template #isDisabled>
+  <ion-item>
     <figure class="img-wrapper">
-      <img src="/assets/icon/{{ voting.name | lowercase }}.svg">
+      <img src="/assets/icon/{{ voting.name | lowercase }}.svg" />
     </figure>
     <ion-label> {{ voting.name }}</ion-label>
   </ion-item>
-</ng-container>
-
+</ng-template>

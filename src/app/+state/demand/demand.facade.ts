@@ -3,7 +3,7 @@ import { Store, StoreModule } from "@ngrx/store";
 import { DemandState } from "./demand.reducer";
 import { DemandActions } from "./demand.actions";
 import { Observable } from "rxjs";
-import { Products } from "./demand.model";
+import { Products, Product } from "./demand.model";
 import { fromDemands } from "./demand.selectors";
 
 @Injectable({ providedIn: StoreModule })
@@ -14,5 +14,9 @@ export class DemandFacade {
 
   loadProducts() {
     this.store.dispatch(DemandActions.loadProdcuts());
+  }
+
+  selectProduct(product: Product) {
+    this.store.dispatch(DemandActions.selectProduct({ payload: product }));
   }
 }

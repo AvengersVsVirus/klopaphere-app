@@ -15,7 +15,22 @@ export const reducer = createReducer(
   on(DemandActions.productsLoaded, (state, action) => ({
     ...state,
     products: action.payload
-  }))
+  })),
+  on(DemandActions.selectProduct, (state, action) => {
+    return {
+      ...state,
+      products: [
+        ...state.products.map(product =>
+          action.payload.name === product.name
+            ? {
+                ...product,
+                isSelected: !product.isSelected
+              }
+            : product
+        )
+      ]
+    };
+  })
 );
 
 export function demandReducer(state: DemandState, action: Action) {

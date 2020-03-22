@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { ActionPayload, ErrorPayload } from "src/app/shared/store/action.model";
-import { Products } from "./demand.model";
+import { Products, Product } from "./demand.model";
 
 const loadProdcuts = createAction("[Demand] Load Products");
 
@@ -14,8 +14,14 @@ const loadProdcutsFailed = createAction(
   props<ErrorPayload>()
 );
 
+const selectProduct = createAction(
+  "[Demand] Select Product",
+  props<ActionPayload<Product>>()
+);
+
 export const DemandActions = {
   loadProdcuts,
   productsLoaded,
-  loadProdcutsFailed
+  loadProdcutsFailed,
+  selectProduct
 };
