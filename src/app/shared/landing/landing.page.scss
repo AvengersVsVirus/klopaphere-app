@@ -1,0 +1,16 @@
+
+ion-button{
+  --ion-color-warning-contrast:var(--ion-text-color)!important;
+  --ion-color-contrast: var(--ion-text-color) !important;
+  --color: var(--ion-text-color) !important;
+  --ion-color-success: #F1F3FB;
+  --ion-color-base: #F1F3FB;
+  border-radius: 12px;
+  --box-shadow:  6px 6px 12px rgb(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.5) !important;
+}
+ion-button:hover,ion-button:active, ion-button:focus{
+
+  --ion-color-base: #F1F3FB;
+  border-radius: 12px;
+  --box-shadow:  inset 5px 5px 5px #BFC9D9, inset -5px -5px 5px rgb(255, 255, 255, 0.6) !important;
+}
