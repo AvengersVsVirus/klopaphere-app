@@ -1,14 +1,14 @@
 <ion-grid>
   <ion-row>
     <ion-col>
+      <figure class="title-wrapper">
+        <img
+          src="/assets/icon/find.svg"
+          style="height:34px; filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);"
+        />
+        <figcaption>Bewerte wie viel du siehst …</figcaption>
+      </figure>
       <ng-container *ngIf="isVotingAvailable; else done">
-        <figure class="title-wrapper">
-          <img
-            src="/assets/icon/find.svg"
-            style="height:34px; filter: invert(48%) sepia(6%) saturate(1016%) hue-rotate(184deg) brightness(92%) contrast(88%);"
-          />
-          <figcaption>Bewerte wie viel du siehst …</figcaption>
-        </figure>
         <h6>{{ location.name }}</h6>
         <supply-list-item
           *ngFor="let voting of votings; let index = index"
@@ -18,10 +18,13 @@
         ></supply-list-item>
       </ng-container>
       <ng-template #done>
-        <img
-          src="assets/danke.png"
-          style="height: 450px; margin: 0 auto;  display: block;"
-        />
+        <figure class="title-wrapper">
+          <img
+            src="assets/danke.svg"
+            style="height:300px; width: 250px; margin-top: 28px;"
+          />
+          <figcaption>Geschafft! Danke für deine Unterstützung</figcaption>
+        </figure>
       </ng-template>
     </ion-col>
   </ion-row>

@@ -10,7 +10,5 @@ export class DemandButtonComponent {
 
   constructor() {}
 
-  onDemandCheck() {
-    console.log();
-  }
+  onDemandCheck() {}
 }

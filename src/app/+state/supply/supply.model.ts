@@ -22,5 +22,5 @@ export interface SupplyLocation {
 
 export interface PostVoting {
   voting: Voting;
-  chosenOption: VotingOption;
+  chosenOption: Availability;
 }
