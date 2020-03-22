@@ -1,25 +1,18 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Voting} from '../../../+state';
+import { Component, Input, Output } from "@angular/core";
+import { Product } from "src/app/+state/demand/demand.model";
 
 @Component({
-    selector: 'demand-list-item',
-    templateUrl: './demand-list-item.component.html',
-    styleUrls: ['./demand-list-item.component.scss'],
+  selector: "demand-list-item",
+  templateUrl: "./demand-list-item.component.html",
+  styleUrls: ["./demand-list-item.component.scss"]
 })
 export class DemandListItemComponent {
+  @Input()
+  product: Product;
 
-    @Input()
-    voting: Voting;
+  isActive: boolean;
 
-
-    @Output()
-    currentDemandFilter: [''];
-
-    onCurrentDemandFilter(e) {
-        e.stopPropagation();
-        e.target.classList.toggle('active');
-
-        /*const tagName: any = e.target.tagName;
-        this.currentDemandFilter.push(tagName);*/
-    }
+  onToggle() {
+    this.isActive = !this.isActive;
+  }
 }

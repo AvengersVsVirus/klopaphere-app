@@ -1,10 +1,22 @@
-import { Action, createReducer } from "@ngrx/store";
+import { Action, createReducer, on } from "@ngrx/store";
+import { Products } from "./demand.model";
+import { DemandActions } from "./demand.actions";
 
-export interface DemandState {}
+export interface DemandState {
+  products: Products;
+}
 
-export const initialState: DemandState = {};
+export const initialState: DemandState = {
+  products: []
+};
 
-export const reducer = createReducer(initialState);
+export const reducer = createReducer(
+  initialState,
+  on(DemandActions.productsLoaded, (state, action) => ({
+    ...state,
+    products: action.payload
+  }))
+);
 
 export function demandReducer(state: DemandState, action: Action) {
   return reducer(state, action);

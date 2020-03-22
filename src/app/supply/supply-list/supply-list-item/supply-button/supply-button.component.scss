@@ -1,18 +1,16 @@
-
-ion-button[ng-reflect-color="warning"]{
-  --ion-color-success: #F88F62;
+ion-button[ng-reflect-color="warning"] {
+  --ion-color-success: #f88f62;
 }
-ion-button[ng-reflect-color="success"]{
-  --ion-color-success: #64C8A7;
+ion-button[ng-reflect-color="success"] {
+  --ion-color-success: #64c8a7;
 }
-ion-button[ng-reflect-color="danger"]{
-
-  --ion-color-success: #FD6562;
+ion-button[ng-reflect-color="danger"] {
+  --ion-color-success: #fd6562;
 }
 
-ion-button{
+ion-button {
   border-radius: 12px;
-  --box-shadow: -3px -3px 5px 0 #FAFBFF, 3px 3px 5px 0 #A6ABBD;
+  --box-shadow: -3px -3px 5px 0 #fafbff, 3px 3px 5px 0 #a6abbd;
 
   --ion-color-warning-contrast: #fff !important;
   --ion-color-contrast: #fff !important;
@@ -20,6 +18,6 @@ ion-button{
   height: 35px;
   //
 }
-:host{
+:host {
   width: 33%;
 }

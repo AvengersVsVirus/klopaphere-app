@@ -1,12 +1,9 @@
-<ion-card  (click)="onCurrentDemandFilter($event)">
-
-    <ion-card-content >
-        <figure class="img-wrapper">
-            <img src="/assets/icon/{{ voting.name | lowercase }}.svg">
-            <figcaption lang="de">{{ voting.name }}</figcaption>
-        </figure>
-    </ion-card-content>
-
+<ion-card [ngClass]="{ active: isActive }" (click)="onToggle()">
+  <ion-card-content>
+    <figure class="img-wrapper">
+      <img src="/assets/icon/{{ product.name | lowercase }}.svg" />
+      <figcaption lang="de">{{ product.name }}</figcaption>
+    </figure>
+  </ion-card-content>
 </ion-card>
-
-{{currentDemandFilter}}
+{{ currentDemandFilter }}
